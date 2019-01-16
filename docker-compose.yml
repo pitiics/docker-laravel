@@ -1,0 +1,16 @@
+version: '3'
+services:
+  logging-php:
+    build: '.'
+    container_name: "logging-php"
+    networks: 
+      - api_network
+    ports:
+      - "88:80"
+    restart: always      
+    volumes:
+      - ./www/:/var/www/html
+      - ./sessions/:/tmp/
+networks: 
+  api_network:
+    driver: bridge
